@@ -8,7 +8,7 @@ import TodoList from "./Componentes/TodoList";
 /**
  * Styles
  */
-import "./App.scss";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -29,6 +29,12 @@ function App() {
       todoNameRef.current.value = null;
     }
   }
+
+  function limpiar_lista(){
+    setTodos([]);
+    document.getElementById('cantidad_total').innerText = 0;
+  }
+
 
   function toogle_todo(id) {
     const new_todos = [...todos];
@@ -52,8 +58,8 @@ function App() {
           <input ref={todoNameRef} type="text"></input>
           <button onClick={add_todo}> Agregar a lista </button>
         </div>
-        <button>Limpiar lista </button>
-      </main>
+    <button onClick={limpiar_lista}>Limpiar lista </button>
+        </main>
     </div>
   );
 }
