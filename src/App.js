@@ -8,7 +8,7 @@ import TodoList from "./Componentes/TodoList";
 /**
  * Styles
  */
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [todos, setTodos] = useState([]);
