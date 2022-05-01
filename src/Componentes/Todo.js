@@ -1,17 +1,21 @@
 import React from "react";
 
-export default function Todo(todo, toogle_todo) {
+export default function Todo(props) {
+  const { todo, toogle_todo } = props;
+  const { id, name, completed } = todo;
+
   function cambiar_toogle_todo() {
-    toogle_todo(todo.todo.id);
+    toogle_todo(id);
   }
+
   return (
     <div>
       <input
         onChange={cambiar_toogle_todo}
         type="checkbox"
-        checked={todo.todo.completed}
+        checked={completed}
       ></input>
-      <label>{todo.todo.name}</label>
+      <label>{name}</label>
     </div>
   );
 }

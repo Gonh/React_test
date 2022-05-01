@@ -1,6 +1,14 @@
-import "./App.css";
-import TodoList from "./Componentes/TodoList";
 import React, { useState, useRef } from "react";
+
+/**
+ * Components
+ */
+import TodoList from "./Componentes/TodoList";
+
+/**
+ * Styles
+ */
+import "./App.scss";
 
 function App() {
   const [todos, setTodos] = useState([]);
