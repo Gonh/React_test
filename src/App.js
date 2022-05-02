@@ -11,55 +11,56 @@ import TodoList from "./Componentes/TodoList";
 import "./App.scss";
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const todoNameRef = useRef();
+  const [Todos, SetTodos] = useState([]);
+  const TodoNameRef = useRef();
 
-  function add_todo(event) {
-    const name = todoNameRef.current.value;
+  function Add_todo(event) {
+    const name = TodoNameRef.current.value;
     if (name === "") {
       return;
     } else {
-      document.getElementById("cantidad_total").innerText = todos.length + 1;
-      setTodos((prevtodos) => {
+      document.getElementById("cantidad_total").innerText = Todos.length + 1;
+      SetTodos((prevtodos) => {
         return [
           ...prevtodos,
           { id: Math.random(), name: name, completed: false },
         ];
       });
-      todoNameRef.current.value = null;
+      TodoNameRef.current.value = null;
     }
   }
 
-  function limpiar_lista(){
-    setTodos([]);
-    document.getElementById('cantidad_total').innerText = 0;
+  function Limpiar_lista() {
+    SetTodos([]);
+    document.getElementById("cantidad_total").innerText = 0;
   }
 
-
-  function toogle_todo(id) {
-    const new_todos = [...todos];
+  function Toogle_todo(id) {
+    const new_todos = [...Todos];
     const todo = new_todos.find((todo) => todo.id === id);
     todo.completed = !todo.completed;
-    setTodos(new_todos);
+    SetTodos(new_todos);
   }
 
   return (
     <div className="root">
       <header className="root__header">
-        <span>This is header</span>
+        <span>Testing de React</span>
       </header>
       <main className="root__main">
-        <h1>This is a new app</h1>
-        <TodoList todos={todos} toogle_todo={toogle_todo} />
-        <p>
-          Cantidad total :<span id="cantidad_total"> 0 </span>{" "}
-        </p>
-        <div>
-          <input ref={todoNameRef} type="text"></input>
-          <button onClick={add_todo}> Agregar a lista </button>
-        </div>
-    <button onClick={limpiar_lista}>Limpiar lista </button>
-        </main>
+        <h1>Inicio</h1>
+        <section>
+          <TodoList Todos={Todos} Toogle_todo={Toogle_todo} />
+          <p>
+            Cantidad total :<span id="cantidad_total"> 0 </span>{" "}
+          </p>
+          <div>
+            <input ref={TodoNameRef} type="text"></input>
+            <button onClick={Add_todo}> Agregar a lista </button>
+          </div>
+          <button onClick={Limpiar_lista}>Limpiar lista </button>
+        </section>
+      </main>
     </div>
   );
 }

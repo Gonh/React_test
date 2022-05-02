@@ -6,12 +6,12 @@ import React from "react";
 import Todo from "./Todo";
 
 export default function TodoList(props) {
-  const { todos, toogle_todo } = props;
+  const { Todos, Toogle_todo } = props;
 
   return (
     <section>
-      {todos.map((todo) => {
-        return <Todo key={todo.id} todo={todo} toogle_todo={toogle_todo} />;
+      {Todos.map((todo) => {
+        return <Todo key={todo.id} todo={todo} Toogle_todo={Toogle_todo} />;
       })}
     </section>
   );
