@@ -34,3 +34,52 @@
 .display_none{
   display: none;
 }
+
+.nav-links{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+.link{
+  color: white;
+  text-decoration:none;
+  list-style: none;
+}
+.link:hover{
+  color: blue;
+}
+
+.lista{
+  list-style: none;
+  overflow-y: scroll;
+  height: 35rem;
+  width: 15rem;
+}
+
+.lista li{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: black;
+  height: 1.5rem;
+}
+
+.api_link{
+  text-decoration:none;
+  border-style: solid;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+}
+.api_link:hover{
+  color: black;
+  border-style:double;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+}
