@@ -1,36 +1,37 @@
-import { React, useState, useEffect, version } from "react";
+import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Api() {
   useEffect(() => {
     buscar_items();
   }, []);
 
-  const [sitios, set_sitios] = useState([]);
+  const [sitios, Set_sitios] = useState([]);
   const [Categorias, Set_categorias] = useState([]);
-  var Sitio = '';
-  var Categoria = '';
+  var sitio = '';
+
   const buscar_items = async () => {
     const data = await fetch("https://api.mercadolibre.com/sites");
     const items = await data.json();
-    set_sitios(items);
+    Set_sitios(items);
   };
 
-  const buscar_categorias = async () => {
-    const data_categoria = await fetch(" https://api.mercadolibre.com/sites/" + Sitio +"/categories");
+  const Buscar_categorias = async () => {
+    const data_categoria = await fetch("https://api.mercadolibre.com/sites/" + sitio +"/categories");
     const items_categoria = await data_categoria.json();
-    Set_categorias(items_categoria);
+    if(items_categoria.hasOwnProperty('error') == false){
+      Set_categorias(items_categoria);
+    }
+ 
   };
 
   function Pedir_categorias(event){
     if(event.isTrusted == true){
-      Sitio = event.target.id;
-      buscar_categorias();
+     sitio = event.target.id;
+      Buscar_categorias();
     }
   }
 
-  function Pedir_productos(event){
-
-  }
 
   return (
     <section>
@@ -38,7 +39,7 @@ export default function Api() {
       <div className="grid">
       <div>
     <ul className="lista">
-    <h3>Sitios</h3>
+    <h3>Paises</h3>
         {sitios.map((sitio) => {
           return <li key={sitio.id}> <button id={sitio.id} onClick={Pedir_categorias} > {sitio.name} </button> </li>;
         })}
@@ -49,12 +50,12 @@ export default function Api() {
     <h3>Categorias</h3>
         {
         Categorias.map((cate) => {
-          return <li key={cate.id}> <button id={cate.id} onClick={Pedir_productos} > {cate.name} </button> </li>;
+          return <li key={cate.id}>  <Link className='api_link' to={"/item_api/" + cate.id}>{cate.name}</Link> </li>;
         })
         }
       </ul>
+      </div>
 
-    </div>
       </div>
     </section>
   );
