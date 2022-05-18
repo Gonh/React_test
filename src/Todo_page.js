@@ -39,7 +39,7 @@ import React, { useState, useRef} from "react";
   }
 
   return (
-    <section>
+    <>
       <h1>Todo page</h1>
       <TodoList Todos={Todos} Toogle_todo={Toogle_todo} />
       <p>
@@ -50,6 +50,6 @@ import React, { useState, useRef} from "react";
         <button onClick={Add_todo}> Agregar a lista </button>
       </div>
       <button onClick={Limpiar_lista}>Limpiar lista </button>
-    </section>
+    </>
   )
 }

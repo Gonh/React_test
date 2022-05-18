@@ -1,5 +1,6 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { User_context } from "./Componentes/User_context";
 
 export default function Api() {
   useEffect(() => {
@@ -8,6 +9,7 @@ export default function Api() {
 
   const [sitios, Set_sitios] = useState([]);
   const [Categorias, Set_categorias] = useState([]);
+  const user = useContext(User_context);
   var sitio = '';
 
   const buscar_items = async () => {
@@ -36,6 +38,7 @@ export default function Api() {
   return (
     <section>
       <h1>API</h1>
+      <h2>{user.User.given_name}</h2>
       <div className="grid">
       <div>
     <ul className="lista">

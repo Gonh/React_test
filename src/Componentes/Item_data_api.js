@@ -18,13 +18,13 @@ export default function Item_data_api() {
 
   };
   return (
-    <section>
-      <h2 id="titulo"></h2>
+    <>
+      <h1 id="titulo"></h1>
      <div>
      <p>Cantidad total de items:</p>
       <span id="cantidad_total_de_item"></span>
      </div>
       <img id="imagen" className="imagen"></img>
-    </section>
+    </>
   );
 }
