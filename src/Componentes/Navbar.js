@@ -13,16 +13,19 @@ const {isAuthenticated} = useAuth0();
       <ul className="nav-links">
         <span>Testing de React</span>
         <li>
-          {" "}
           <Link className="link" to="/">
             Todo page
-          </Link>{" "}
+          </Link>
         </li>
         <li>
-          {" "}
           <Link className="link" to="/Api">
             Api
-          </Link>{" "}
+          </Link>
+        </li>
+        <li>
+          <Link className="link" to="/Form">
+            Prueba Form
+          </Link>
         </li>
         {isAuthenticated == true ? (
           <>
